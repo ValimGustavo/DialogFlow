@@ -13,19 +13,36 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 const PORT = process.env.PORT || 3000
 
-app.post("/", (req:webHookRequest, res) => {
-    console.log(req);
-    const obj:webHookTextResponse = {
-        fulfillmentMessages:[
-            {
-                text:{
-                    text:[
-                        "Resposta vindo do servidor"
-                    ]
+app.post("/", (req, res) => {
+    console.log(req.body.intent.displayName);
+    const intent = req.body.intent.displayName;
+    let obj:webHookTextResponse;
+    if( intent == 'Esporte'){
+        const obj = {
+            fulfillmentMessages:[
+                {
+                    text:{
+                        text:[
+                            "Resposta para Intent ESPORT:" + intent
+                        ]
+                    }
                 }
-            }
-        ]
+            ]
+        }
+    }else{
+        const obj = {
+            fulfillmentMessages:[
+                {
+                    text:{
+                        text:[
+                            "Resposta para Intent" + intent
+                        ]
+                    }
+                }
+            ]
+        }
     }
+    
     res.json(obj)
 })
 app.listen(PORT, ()=>{
