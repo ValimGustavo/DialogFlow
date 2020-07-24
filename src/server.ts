@@ -1,4 +1,6 @@
-﻿﻿const express = require('express')
+﻿﻿import { webHookRequest } from "./interfaces/webHook-request"
+
+const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
@@ -9,9 +11,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 const PORT = process.env.PORT || 3000
 
-
 app.get("/", (req, res) => {
-    console.log("entrou")
+    console.log(req)
     res.send({"fulfillmentMessages":"ESTA RODANDO NO HEROKU"})
 })
 app.listen(PORT, ()=>{
