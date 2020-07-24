@@ -14,8 +14,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 const PORT = process.env.PORT || 3000
 
 app.post("/", (req, res) => {
-    console.log(req.body);
-    const intent = req.body.intent.displayName;
+    console.log(req.body.queryResult);
+    const intent = req.body.queryResult.intent.displayName;
     let obj:webHookTextResponse;
     if( intent == 'Esporte'){
         const obj = {
