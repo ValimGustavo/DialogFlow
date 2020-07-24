@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc ./src/server.ts && node ./src/server.js",
-    "git:push":"git add . && git commit && git push"
+    "git:push":"git add . && git commit && git push",
+    "logs": "heroku logs --app dialogflow-positivinho"
   },
   "dependencies": {
     "@types/express": "^4.17.7",

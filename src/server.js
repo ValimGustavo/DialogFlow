@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var PORT = process.env.PORT || 3000;
 app.get("/", function (req, res) {
     console.log(req);
-    res.send({ "fulfillmentMessages": "ESTA RODANDO NO HEROKU" });
+    res.send({ "fulfillmentMessages": "Alteraçao" });
 });
 app.listen(PORT, function () {
     console.log("Server running PORT: ", PORT);
