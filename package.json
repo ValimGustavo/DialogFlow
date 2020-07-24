@@ -6,7 +6,8 @@
   "author": "ValimGustavo <gustavo.souza.valim@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "tsc ./src/server.ts && node ./src/server.js"
+    "start": "tsc ./src/server.ts && node ./src/server.js",
+    "git:push":"git add . && git commit && git push"
   },
   "dependencies": {
     "@types/express": "^4.17.7",
