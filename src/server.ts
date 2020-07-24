@@ -1,6 +1,8 @@
 ﻿﻿import { WebHookRequest } from "./interfaces/webHook-request"
 import { WebHookTextResponse } from "./interfaces/webHook-text-response"
+import { call } from './controller/controller'
 const fetch = require('node-fetch');
+const request = require('request');
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -15,50 +17,21 @@ const PORT = process.env.PORT || 3000
 
 app.post("/", (req, res) => {
 
-    // let webHookRequest:WebHookRequest = req.body
-    // let obj:WebHookTextResponse
+    const params = req.body.intent;
 
-    // let SEARCH_URL = 'https://www.youtube.com/watch?v=';
-    // let SEARCH_ID = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCrtkWROvn-lVFZqLd397jlXayrz6hWhjs&part=id&q='
-    // let search = 'carros'
+    let response = call(params)
+    //GET INTENT 
 
-    // fetch(SEARCH_ID+search).then( response => {
-    //     console.log(response)
-    //    res.json(response)
-    // })
-    const intent = req.body.queryResult.intent.displayName;
-    let obj:WebHookTextResponse;
-    if( intent == 'Esporte'){
-        console.log('INTENT'+ intent)
-        obj = {
-            fulfillmentMessages:[
-                {
-                    text:{
-                        text:[
-                            "Resposta para Intent ESPORT:" + intent
-                        ]
-                    }
-                }
-            ]
-        }
-    }else{
-        console.log("INTENT"+ intent)
-         obj = {
-            fulfillmentMessages:[
-                {
-                    text:{
-                        text:[
-                            "Resposta para Intent" + intent
-                        ]
-                    }
-                }
-            ]
-        }
-    }
-    
-    res.json(obj)
-    
+    //CALL FUNCTION
+
+    res.json(response)
+
+
+
 })
+
+
+
 app.listen(PORT, ()=>{
     console.log("Server running PORT: ", PORT)
 })
