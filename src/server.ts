@@ -18,6 +18,7 @@ app.post("/", (req, res) => {
     const intent = req.body.queryResult.intent.displayName;
     let obj:webHookTextResponse;
     if( intent == 'Esporte'){
+        console.log("esporte")
         const obj = {
             fulfillmentMessages:[
                 {
@@ -30,6 +31,7 @@ app.post("/", (req, res) => {
             ]
         }
     }else{
+        console.log("INTENT")
         const obj = {
             fulfillmentMessages:[
                 {
