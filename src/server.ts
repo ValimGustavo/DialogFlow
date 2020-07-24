@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 const PORT = process.env.PORT || 3000
 
 app.get("/", (req, res) => {
-    console.log(req)
     res.send({"fulfillmentMessages":"ESTA RODANDO NO HEROKU"})
 })
 app.listen(PORT, ()=>{
