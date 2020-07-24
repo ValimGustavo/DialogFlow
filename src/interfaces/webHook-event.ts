@@ -1,4 +1,4 @@
-﻿﻿export interface webHookEvent {
+﻿﻿export interface WebHookEvent {
     followupEventInput: {
       name: String,
       languageCode: String,

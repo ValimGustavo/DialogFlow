@@ -1,4 +1,4 @@
-﻿﻿interface webHookCardResponse {
+﻿﻿interface WebHookCardResponse {
     fulfillmentMessages: [
       {
         card: {

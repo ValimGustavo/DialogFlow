@@ -1,4 +1,4 @@
-﻿﻿export interface webHookTextResponse {
+﻿﻿export interface WebHookTextResponse {
     fulfillmentMessages: [
       {
         text: {

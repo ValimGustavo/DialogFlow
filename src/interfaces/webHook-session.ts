@@ -1,4 +1,4 @@
-﻿﻿export interface webHookSession {
+﻿﻿export interface WebHookSession {
   fulfillmentMessages: [
     {
       text: {

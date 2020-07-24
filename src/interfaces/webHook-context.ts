@@ -1,4 +1,4 @@
-﻿﻿interface webHookContext {
+﻿﻿interface WebHookContext {
     fulfillmentMessages: [
       {
         text: {
