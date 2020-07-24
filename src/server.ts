@@ -1,4 +1,6 @@
 ﻿﻿import { webHookRequest } from "./interfaces/webHook-request"
+import { webHookTextResponse } from "./interfaces/webHook-text-response"
+import { text } from "express"
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -13,8 +15,18 @@ const PORT = process.env.PORT || 3000
 
 app.post("/", (req:webHookRequest, res) => {
     console.log(req);
-    
-    res.send({"fulfillmentMessages":"Alteraçao"})
+    const obj:webHookTextResponse = {
+        fulfillmentMessages:[
+            {
+                text:{
+                    text:[
+                        "Resposta vindo do servidor"
+                    ]
+                }
+            }
+        ]
+    }
+    res.json(obj)
 })
 app.listen(PORT, ()=>{
     console.log("Server running PORT: ", PORT)

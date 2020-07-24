@@ -1,8 +1,8 @@
 ﻿﻿export interface webHookTextResponse {
     fulfillmentMessages: [
       {
-            text: {
-            text: String[]
+        text: {
+          text: string[]
         }
       }
     ]

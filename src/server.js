@@ -8,9 +8,20 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var PORT = process.env.PORT || 3000;
-app.get("/", function (req, res) {
+app.post("/", function (req, res) {
     console.log(req);
-    res.send({ "fulfillmentMessages": "Alteraçao" });
+    var obj = {
+        fulfillmentMessages: [
+            {
+                text: {
+                    text: [
+                        "Resposta vindo do servidor"
+                    ]
+                }
+            }
+        ]
+    };
+    res.json(obj);
 });
 app.listen(PORT, function () {
     console.log("Server running PORT: ", PORT);
