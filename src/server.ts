@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 const PORT = process.env.PORT || 3000
 
-app.post("/", (req, res) => {
-    console.log(req.body);
+app.post("/", (req:webHookRequest, res) => {
+    console.log(req);
     
     res.send({"fulfillmentMessages":"Alteraçao"})
 })
