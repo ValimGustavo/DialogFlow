@@ -56,6 +56,7 @@ app.post("/", (req, res) => {
         }
     }
     
+    res.json(obj)
     
 })
 app.listen(PORT, ()=>{
