@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 const PORT = process.env.PORT || 3000
 
 app.post("/", (req, res) => {
-    console.log(req);
+    console.log(req.body.parameters);
     
     res.send({"fulfillmentMessages":"Alteraçao"})
 })
