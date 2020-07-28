@@ -21,7 +21,7 @@ app.post("/", (req, res) => {
 
   const response = webHookRequest;
 
-  console.log('response -->', response)
+  console.log('response -->', response.queryResult)
   console.dir('response --->', response)
 
   res.json(response);
