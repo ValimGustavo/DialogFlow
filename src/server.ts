@@ -19,6 +19,12 @@ const PORT = process.env.PORT || 3000;
 app.post("/", (req, res) => {
   const webHookRequest: WebHookRequest = req.body;
 
+  console.log('fulfillment =--->', webHookRequest.queryResult.fulfillmentMessages)
+  console.log('out =--->', webHookRequest.queryResult.outputContexts[0].parameters)
+
+  
+
+
   const response = Controller(webHookRequest);
 
   res.json(response);
