@@ -15,7 +15,12 @@
     {
       name:
         "projects/positivinho-ucpbrk/agent/sessions/95aff1e6-77ba-50fd-9448-a2edf119c884/contexts/__system_counters__",
-      parameters: [Object],
+      parameters: {
+        'no-input': 0,
+        'no-match': 0,
+        esportes: [ 'esportes' ],
+        'esportes.original': [ 'futebol' ]
+        },
     },
   ],
   intent: {
@@ -26,3 +31,7 @@
   intentDetectionConfidence: 0.71307766,
   languageCode: "pt-br",
 };
+
+
+
+

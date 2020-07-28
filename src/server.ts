@@ -20,9 +20,11 @@ app.post("/", (req, res) => {
   const webHookRequest: WebHookRequest = req.body;
 
   console.log('fulfillment =--->', webHookRequest.queryResult.fulfillmentMessages)
-  console.log('out =--->', webHookRequest.queryResult.outputContexts[0].parameters)
-
-  
+  console.log('0 =--->', webHookRequest.queryResult.fulfillmentMessages[0])
+  console.log('1 =--->', webHookRequest.queryResult.fulfillmentMessages[0].text)
+  console.log('2 =--->', webHookRequest.queryResult.fulfillmentMessages[0].text.text)
+ 
+ 
 
 
   const response = Controller(webHookRequest);
