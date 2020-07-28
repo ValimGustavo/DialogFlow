@@ -1,6 +1,6 @@
 ﻿﻿import { WebHookRequest } from "./interfaces/webHook-request";
 import { WebHookTextResponse } from "./interfaces/webHook-text-response";
-import { call } from "./controller/controller";
+import { Controller } from "./controller/controller";
 import { isConstructorDeclaration } from "typescript";
 const fetch = require("node-fetch");
 const request = require("request");
@@ -19,10 +19,7 @@ const PORT = process.env.PORT || 3000;
 app.post("/", (req, res) => {
   const webHookRequest: WebHookRequest = req.body;
 
-  const response = webHookRequest;
-
-  console.log('response -->', response.queryResult.parameters)
-  console.dir('response --->', response)
+  const response = Controller(webHookRequest);
 
   res.json(response);
 });

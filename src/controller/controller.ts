@@ -1,11 +1,10 @@
-﻿﻿import { intentEsporte } from '../services/esporte.service'
+﻿﻿import { EsporteService } from "../services/esporte.service";
+import { WebHookRequest } from "../interfaces/webHook-request";
 
-
-export function call(intent){
-
-    switch(intent){
-        case 'Esporte':{
-            return intentEsporte()
-        } 
+export function Controller(webHookRequest: WebHookRequest) {
+  switch (webHookRequest.queryResult.intent.displayName) {
+    case "Esporte": {
+      return EsporteService();
     }
+  }
 }
