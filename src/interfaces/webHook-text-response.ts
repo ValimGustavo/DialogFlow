@@ -1,4 +1,4 @@
-﻿﻿export interface WebHookTextResponse {
+﻿﻿export interface  IWebHookTextResponse {
     fulfillmentMessages: [
       {
         text: {
@@ -6,4 +6,15 @@
         }
       }
     ]
+}
+
+export class  WebHookTextResponse {
+  
+  fulfillmentMessages: [
+    {
+      text: {
+        text: string[]
+      }
+    }
+  ]
 }

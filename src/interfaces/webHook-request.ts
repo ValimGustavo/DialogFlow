@@ -20,7 +20,10 @@
           name:String
           lifespanCount: 5,
           parameters: {
-            'param-name':String
+            'no-input': Number, 
+            'no-match': Number, 
+            intent: string[], 
+            'intent.original': string[] 
           }
         }
       ],

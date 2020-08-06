@@ -2,9 +2,11 @@
 import { WebHookRequest } from "../interfaces/webHook-request";
 
 export function Controller(webHookRequest: WebHookRequest) {
+  console.log(webHookRequest)
   switch (webHookRequest.queryResult.intent.displayName) {
-    case "Esporte": {
-      return EsporteService();
+    case "Esportes": {
+      console.log('esporte')
+      return EsporteService(webHookRequest);
     }
   }
 }
