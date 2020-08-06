@@ -1,0 +1,79 @@
+﻿Server running PORT:  3000
+{
+  queryResult: {
+    queryText: 'eu gosto de futebol',
+    parameters: { esportes: [Array] },
+    allRequiredParamsPresent: true,
+    fulfillmentText: 'Opa, legal, praticar esporte é uma ótima maneira de distração.',
+    fulfillmentMessages: [ [Object] ],
+    outputContexts: [ [Object] ],
+    intent: {
+      name: 'projects/positivinho-ucpbrk/agent/intents/f4732230-ec90-48b1-a852-ca02bfab76e8',
+      displayName: 'Esportes'
+    },
+    intentDetectionConfidence: 0.71307766,
+    languageCode: 'pt-br'
+  }
+}
+esporte
+---> {
+  kind: 'youtube#searchListResponse',
+  etag: 'XORYvpLLPX_QUmnJZE_XR5e2MOU',
+  nextPageToken: 'CAUQAA',
+  regionCode: 'BR',
+  pageInfo: { totalResults: 1000000, resultsPerPage: 5 },
+  items: [
+    {
+      kind: 'youtube#searchResult',
+      etag: 'BtLg_ySonabA2t3-1Fjwa4GDpN4',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'r_Uuo4u_mt5PHwQeg0dn0o7-gCQ',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'pzuoj3oSFPaHMYxoI12-M_S70f8',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'LNW0uRmyqaCkP8JqYXKjhgHos2s',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'KtW3hz85YkWAX1ip5HF4pTOstzY',
+      id: [Object]
+    }
+  ]
+}
+a [
+  {
+    kind: 'youtube#searchResult',
+    etag: 'BtLg_ySonabA2t3-1Fjwa4GDpN4',
+    id: { kind: 'youtube#video', videoId: '4zZIzQXtorw' }
+  },
+  {
+    kind: 'youtube#searchResult',
+    etag: 'r_Uuo4u_mt5PHwQeg0dn0o7-gCQ',
+    id: { kind: 'youtube#video', videoId: 'OdvlHMVfIAE' }
+  },
+  {
+    kind: 'youtube#searchResult',
+    etag: 'pzuoj3oSFPaHMYxoI12-M_S70f8',
+    id: { kind: 'youtube#video', videoId: 'PU4gIPm788k' }
+  },
+  {
+    kind: 'youtube#searchResult',
+    etag: 'LNW0uRmyqaCkP8JqYXKjhgHos2s',
+    id: { kind: 'youtube#channel', channelId: 'UC1Ruj9knWp-NQEPBhNZqaoQ' }
+  },
+  {
+    kind: 'youtube#searchResult',
+    etag: 'KtW3hz85YkWAX1ip5HF4pTOstzY',
+    id: { kind: 'youtube#video', videoId: '1EZaL9gM168' }
+  }
+]

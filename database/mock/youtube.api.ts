@@ -50,3 +50,49 @@
     }
   ]
 }
+
+
+
+
+/*
+{
+  kind: 'youtube#searchListResponse',
+  etag: 'X-inN8TemWMT0RoT4e8TPlqUl_I',
+  nextPageToken: 'CAUQAA',
+  regionCode: 'BR',
+  pageInfo: { totalResults: 1000000, resultsPerPage: 5 },
+  items: [
+    {
+      kind: 'youtube#searchResult',
+      etag: 'BtLg_ySonabA2t3-1Fjwa4GDpN4',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'LNW0uRmyqaCkP8JqYXKjhgHos2s',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'r_Uuo4u_mt5PHwQeg0dn0o7-gCQ',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'pzuoj3oSFPaHMYxoI12-M_S70f8',
+      id: [Object]
+    },
+    {
+      kind: 'youtube#searchResult',
+      etag: 'KtW3hz85YkWAX1ip5HF4pTOstzY',
+      id: [Object]
+    }
+  ]
+}
+valim@valim:~/Desktop/DialogFlow$ tsc test.ts && node test.js
+{ kind: 'youtube#video', videoId: '4zZIzQXtorw' }
+valim@valim:~/Desktop/DialogFlow$ 
+
+
+
+*/

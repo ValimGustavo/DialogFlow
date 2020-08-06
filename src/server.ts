@@ -2,6 +2,7 @@
 import { WebHookTextResponse } from "./interfaces/webHook-text-response";
 import { Controller } from "./controller/controller";
 import { isConstructorDeclaration } from "typescript";
+import { log } from "./utils/log";
 const fetch = require("node-fetch");
 const request = require("request");
 
@@ -16,11 +17,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
 
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
   const webHookRequest: WebHookRequest = req.body;
-  const response = Controller(webHookRequest);
+  const response = await Controller(webHookRequest);
 
-  //console.log(response)
+ log('response', response)
   res.json(response);
 });
 

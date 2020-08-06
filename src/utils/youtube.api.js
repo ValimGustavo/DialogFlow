@@ -36,33 +36,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var controller_1 = require("./controller/controller");
-var log_1 = require("./utils/log");
-var fetch = require("node-fetch");
-var request = require("request");
-var express = require("express");
-var bodyParser = require("body-parser");
-var cors = require("cors");
-var app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-var PORT = process.env.PORT || 3000;
-app.post("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var webHookRequest, response;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                webHookRequest = req.body;
-                return [4 /*yield*/, controller_1.Controller(webHookRequest)];
-            case 1:
-                response = _a.sent();
-                log_1.log('response', response);
-                res.json(response);
-                return [2 /*return*/];
-        }
+exports.requestVideosApi = void 0;
+var axios_1 = require("axios");
+function requestVideosApi(url) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios_1["default"].get(url)
+                        .then(function (response) {
+                        if (response.status == 200)
+                            return response.data;
+                        else
+                            return '';
+                    })["catch"](function (err) {
+                        throw new Error(err);
+                    })];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
     });
-}); });
-app.listen(PORT, function () {
-    console.log("Server running PORT: ", PORT);
-});
+}
+exports.requestVideosApi = requestVideosApi;
