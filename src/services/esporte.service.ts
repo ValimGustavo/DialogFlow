@@ -21,14 +21,16 @@ export  async function EsporteService(webHookRequest: WebHookRequest) {
     ][0];
   //chamada da api do google
 
+  
   let url_complete = url_search_video + searchFor;
 
-  const resp = api_youtube//await requestVideosApi(url_complete)
+  const resp = await requestVideosApi(url_complete)
  
   const listUrl = getVideoId(resp.items);
 
   const url_format = constructorURL(url_video, listUrl);
   
+  log('url_complete', url_complete)
   log('resp.items', resp.items)
   log('listUrl', listUrl)
   log('url_format', url_format)

@@ -36,42 +36,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.EsporteService = void 0;
-var webHook_text_response_1 = require("../interfaces/webHook-text-response");
-var extractUrl_util_1 = require("../utils/extractUrl.util");
-var url_util_1 = require("../utils/url.util");
-var youtube_api_1 = require("../utils/youtube.api");
-var log_1 = require("../utils/log");
-var request = require("request");
-function EsporteService(webHookRequest) {
+var axios_1 = require("axios");
+function getPage(url) {
     return __awaiter(this, void 0, void 0, function () {
-        var webHookTextResponse, intent, searchFor, url_complete, resp, listUrl, url_format;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    webHookTextResponse = new webHook_text_response_1.WebHookTextResponse();
-                    intent = webHookRequest.queryResult.intent.displayName.toLocaleLowerCase();
-                    searchFor = webHookRequest.queryResult.outputContexts[0].parameters[intent + ".original"][0];
-                    url_complete = url_util_1.url_search_video + searchFor;
-                    return [4 /*yield*/, youtube_api_1.requestVideosApi(url_complete)];
-                case 1:
-                    resp = _a.sent();
-                    listUrl = extractUrl_util_1.getVideoId(resp.items);
-                    url_format = extractUrl_util_1.constructorURL(url_util_1.url_video, listUrl);
-                    log_1.log('url_complete', url_complete);
-                    log_1.log('resp.items', resp.items);
-                    log_1.log('listUrl', listUrl);
-                    log_1.log('url_format', url_format);
-                    webHookTextResponse.fulfillmentMessages = [
-                        {
-                            text: {
-                                text: url_format
-                            }
-                        },
-                    ];
-                    return [2 /*return*/, webHookTextResponse];
+                case 0: return [4 /*yield*/, axios_1["default"].get(url)
+                        .then(function (response) {
+                        if (response.status == 200)
+                            return response.data;
+                        else
+                            return '';
+                    })["catch"](function (err) {
+                        throw new Error(err);
+                    })];
+                case 1: return [2 /*return*/, _a.sent()];
             }
         });
     });
 }
-exports.EsporteService = EsporteService;
+var url_search_video = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCrtkWROvn-lVFZqLd397jlXayrz6hWhjs&part=id&q=';
+getPage(url_search_video + 'futebol')
+    .then(function (response) {
+    console.log(response);
+});
