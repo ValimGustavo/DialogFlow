@@ -19,12 +19,12 @@ export  async function EsporteService(webHookRequest: WebHookRequest) {
     webHookRequest.queryResult.outputContexts[0].parameters[
       `${intent}.original`
     ][0];
-  //chamada da api do google
+
 
   
   let url_complete = url_search_video + searchFor;
 
-  const resp = await requestVideosApi(url_complete)
+  const resp = api_youtube//await requestVideosApi(url_complete)
  
   const listUrl = getVideoId(resp.items);
 
