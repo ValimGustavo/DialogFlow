@@ -15,7 +15,12 @@ export async function EsporteService(webHookRequest: WebHookRequest) {
 
   const intent = webHookRequest.queryResult.intent.displayName.toLocaleLowerCase();
 
-  let searchFor =
+  log('outputContexts: ',webHookRequest.queryResult.outputContexts[0])
+  log('intent: ',  webHookRequest.queryResult.outputContexts[0].parameters[
+    `${intent}.original`
+  ][0] )
+
+  let searchFor = 
     webHookRequest.queryResult.outputContexts[0].parameters[
       `${intent}.original`
     ][0];
