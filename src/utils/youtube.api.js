@@ -46,6 +46,8 @@ function requestVideosApi(url) {
                         .then(function (response) {
                         if (response.status == 200)
                             return response.data;
+                        else if (response.status == 403)
+                            throw Error('request limit');
                         else
                             return '';
                     })["catch"](function (err) {

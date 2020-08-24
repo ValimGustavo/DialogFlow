@@ -41,27 +41,30 @@ var webHook_text_response_1 = require("../interfaces/webHook-text-response");
 var extractUrl_util_1 = require("../utils/extractUrl.util");
 var url_util_1 = require("../utils/url.util");
 var youtube_api_1 = require("../utils/youtube.api");
-var log_1 = require("../utils/log");
 var request = require("request");
 function EsporteService(webHookRequest) {
     return __awaiter(this, void 0, void 0, function () {
-        var webHookTextResponse, intent, searchFor, url_complete, resp, listUrl, url_format;
+        var webHookTextResponse, intent, searchFor, url_complete, resp, listUrl, url_format, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     webHookTextResponse = new webHook_text_response_1.WebHookTextResponse();
                     intent = webHookRequest.queryResult.intent.displayName.toLocaleLowerCase();
                     searchFor = webHookRequest.queryResult.outputContexts[0].parameters[intent + ".original"][0];
-                    url_complete = url_util_1.url_search_video + searchFor;
-                    return [4 /*yield*/, youtube_api_1.requestVideosApi(url_complete)];
+                    _a.label = 1;
                 case 1:
-                    resp = _a.sent();
+                    _a.trys.push([1, 3, , 4]);
+                    url_complete = url_util_1.url_search_video + searchFor;
+                    return [4 /*yield*/, youtube_api_1.requestVideosApi(url_complete)]; //api_youtube;
+                case 2:
+                    resp = _a.sent() //api_youtube;
+                    ;
                     listUrl = extractUrl_util_1.getVideoId(resp.items);
                     url_format = extractUrl_util_1.constructorURL(url_util_1.url_video, listUrl);
-                    log_1.log('url_complete', url_complete);
-                    log_1.log('resp.items', resp.items);
-                    log_1.log('listUrl', listUrl);
-                    log_1.log('url_format', url_format);
+                    // log('url_complete', url_complete)
+                    // log('resp.items', resp.items)
+                    // log('listUrl', listUrl)
+                    // log('url_format', url_format)
                     webHookTextResponse.fulfillmentMessages = [
                         {
                             text: {
@@ -69,7 +72,18 @@ function EsporteService(webHookRequest) {
                             }
                         },
                     ];
-                    return [2 /*return*/, webHookTextResponse];
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    webHookTextResponse.fulfillmentMessages = [
+                        {
+                            text: {
+                                text: ['Isso parece ser muito legal']
+                            }
+                        },
+                    ];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/, webHookTextResponse];
             }
         });
     });
