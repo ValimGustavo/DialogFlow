@@ -36,33 +36,45 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.Controller = void 0;
-var esporte_service_1 = require("../services/esporte.service");
-var gostos_service_1 = require("../services/gostos.service");
-function Controller(webHookRequest) {
+exports.GostosService = void 0;
+var webHook_text_response_1 = require("../interfaces/webHook-text-response");
+var url_util_1 = require("../utils/url.util");
+var log_1 = require("../utils/log");
+function GostosService(webHookRequest) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    console.log(webHookRequest);
-                    _a = webHookRequest.queryResult.intent.displayName;
-                    switch (_a) {
-                        case "Esportes": return [3 /*break*/, 1];
-                        case "Gostos": return [3 /*break*/, 3];
-                    }
-                    return [3 /*break*/, 5];
-                case 1:
-                    console.log('esporte');
-                    return [4 /*yield*/, esporte_service_1.EsporteService(webHookRequest)];
-                case 2: return [2 /*return*/, _b.sent()];
-                case 3:
-                    console.log('gostos');
-                    return [4 /*yield*/, gostos_service_1.GostosService(webHookRequest)];
-                case 4: return [2 /*return*/, _b.sent()];
-                case 5: return [2 /*return*/];
+        var webHookTextResponse, intent, searchFor, url_complete;
+        return __generator(this, function (_a) {
+            webHookTextResponse = new webHook_text_response_1.WebHookTextResponse();
+            intent = webHookRequest.queryResult.intent.displayName.toLocaleLowerCase();
+            searchFor = webHookRequest.queryResult.outputContexts[0].parameters[intent + ".original"][0];
+            try {
+                url_complete = url_util_1.url_search_video + searchFor;
+                //   const resp = await requestVideosApi(url_complete) 
+                //   const listUrl = getVideoId(resp.items);
+                //   const url_format = constructorURL(url_video, listUrl);
+                log_1.log('url_complete', url_complete);
+                //   log('resp.items', resp.items)
+                //   log('listUrl', listUrl)
+                //   log('url_format', url_format)
+                webHookTextResponse.fulfillmentMessages = [
+                    {
+                        text: {
+                            text: ['ESSA EH A INTENSAO Gostos'] //url_format,
+                        }
+                    },
+                ];
             }
+            catch (error) {
+                webHookTextResponse.fulfillmentMessages = [
+                    {
+                        text: {
+                            text: ['Isso parece ser muito legal']
+                        }
+                    },
+                ];
+            }
+            return [2 /*return*/, webHookTextResponse];
         });
     });
 }
-exports.Controller = Controller;
+exports.GostosService = GostosService;
